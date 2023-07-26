@@ -8,23 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Y\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\furka\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Y\\source\\repos\\keparlak\\BeeCommerce_MVC\\BeeCommerce\\BeeCommerce.csproj",
+      "projectUniqueName": "C:\\Users\\furka\\OneDrive\\Belgeler\\GitHub\\BeeCommerce_MVC\\BeeCommerce\\BeeCommerce.csproj",
       "projectName": "BeeCommerce",
-      "projectPath": "C:\\Users\\Y\\source\\repos\\keparlak\\BeeCommerce_MVC\\BeeCommerce\\BeeCommerce.csproj",
-      "packagesPath": "C:\\Users\\Y\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Y\\source\\repos\\keparlak\\BeeCommerce_MVC\\BeeCommerce\\obj\\",
+      "projectPath": "C:\\Users\\furka\\OneDrive\\Belgeler\\GitHub\\BeeCommerce_MVC\\BeeCommerce\\BeeCommerce.csproj",
+      "packagesPath": "C:\\Users\\furka\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\furka\\OneDrive\\Belgeler\\GitHub\\BeeCommerce_MVC\\BeeCommerce\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Y\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\furka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
