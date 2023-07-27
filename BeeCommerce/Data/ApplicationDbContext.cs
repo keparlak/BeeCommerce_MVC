@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using BeeCommerce.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeeCommerce.Data
@@ -9,5 +10,6 @@ namespace BeeCommerce.Data
             : base(options)
         {
         }
+        public DbSet<Category> Categories { get; set; }
     }
 }
