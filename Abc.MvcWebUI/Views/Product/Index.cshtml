@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Entity.Product>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container p-5">
+    <hr />
+    <h2>Urunler</h2>
+    <hr />
+    <p>
+        @Html.ActionLink("Yeni ürün", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsHome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </th>
+            <th style="width: 210px;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Image == null)
+                    {
+                        @Html.ActionLink("Resim Ekle", "Upload", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                    }
+                    else
+                    {
+
+
+                        <img width="70
+                         " src="/Theme/img/@item.Image" />
+
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @if (item.IsHome)
+                    {
+                        <label class="badge badge-primary"><i class="fa fa-check-circle" aria-hidden="true"></i>Anasayfada</label>
+
+                    }
+                    else
+                    {
+                        <label class="badge badge-danger">
+                            <i class="fa fa-ban" aria-hidden="true"></i>
+                            Anasayfada degil
+                        </label>
+                    }
+
+                </td>
+                <td>
+                    @if (item.IsApproved)
+                    {
+                        <label class="badge badge-primary"><i class="fa fa-check-circle" aria-hidden="true"></i>Onaylı</label>
+
+                    }
+                    else
+                    {
+                        <label class="badge badge-danger">
+                            <i class="fa fa-ban" aria-hidden="true"></i>Onaylı degil
+                        </label>
+                    }
+
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("Yorumlar", "Index","Comment", new { id = item.Id }, new { @class = "btn btn-success btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

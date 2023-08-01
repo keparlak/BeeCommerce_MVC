@@ -1,0 +1,76 @@
+﻿@model Abc.MvcWebUI.Entity.Product
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Delete";
+}
+<div class="container p-5">
+    <hr />
+    <h2>Sil</h2>
+    <hr />
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+            <dd>
+                <img width="200
+                         " src="/Theme/img/@Model.Image" />
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsHome)
+            </dt>
+            <dd>
+                @if (Model.IsHome)
+                {
+                    <label class="badge badge-primary"><i class="fa fa-check-circle" aria-hidden="true"></i>Anasayfada</label>
+
+                }
+                else
+                {
+                    <label class="badge badge-danger">
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                        Anasayfada degil
+                    </label>
+                }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </dt>
+            <dd>
+                @if (Model.IsApproved)
+                {
+                    <label class="badge badge-primary"><i class="fa fa-check-circle" aria-hidden="true"></i>Onaylı</label>
+
+                }
+                else
+                {
+                    <label class="badge badge-danger">
+                        <i class="fa fa-ban" aria-hidden="true"></i>Onaylı degil
+                    </label>
+                }
+            </dd>
+        </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="sil" class="btn btn-danger" />
+                @Html.ActionLink("Listeye geri dön", "Index", null, new { @class = "btn btn-warning" })
+            </div>
+        }
+    </div>
+</div>

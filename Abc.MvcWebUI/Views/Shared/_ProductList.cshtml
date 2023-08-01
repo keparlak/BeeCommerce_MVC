@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Models.ProductModel>
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card card-img-top " style="border: none; "><a href="/home/details/@product.Id"></a>
+                <img  class="w-75 ml-3" alt="" src="~/Theme/img/@product.Image" width="140">
+                <div class="card-body">
+
+                    @*<h5 class="card-title"> @Html.ActionLink(product.Name,"details",new {id=product.Id }) </h5>*@
+                    <h5 class="card-title">
+                        <a style="color: red;" href="/Home/Details/@product.Id"> @product.Name </a>
+                    </h5>
+
+                    <p class="card-text mt-2 " >@product.Description</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted product-price">@product.Price<i class="fa fa-try" aria-hidden="true"></i></small>
+                    @Html.ActionLink("Details", "Details", new {id = product.Id}, new {@class = "btn btn-danger btn-sm float-right"})
+                </div>
+            </div>
+        </div>
+    }
+</div>

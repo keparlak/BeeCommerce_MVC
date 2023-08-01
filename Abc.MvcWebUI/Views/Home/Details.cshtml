@@ -1,0 +1,107 @@
+﻿@using Abc.MvcWebUI.Entity
+@model Abc.MvcWebUI.Entity.Product
+@{
+    ViewBag.Title = "Details";
+}
+<div id="product-details" class="container mb-5 mt-5">
+    <div class="  row">
+        <div class="col-md-6">
+            <img src="~/Theme/img/@Model.Image" alt="asdfg" class="img-fuild rounded w-100">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Name</h1>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-12">
+                    <span class="badge badge-primary">In Stock</span>
+                    <span class="product-number">@Model.Stock</span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description">
+                        @Model.Description
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <span class="badge badge-success ">53</span>
+                </div>
+                <div id="write-review" class="col-md-4">
+                    <a href="/Comment/Create/@Model.Id"><i class="fa fa-commenting fa" aria-hidden="true"></i>yorum yap</a>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4 id="product-price">@Model.Price<i class="fa fa-try" aria-hidden="true"></i></h4>
+
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+
+                        @Html.HiddenFor(i => i.Id)
+                        <button type="submit" class="btn btn-success">sepete ekle <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 p-3 ">
+            <div class="bd-example bd-example-tabs">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active show" id="nav-comment-tab" data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-home" aria-selected="true">Comment</a>
+                        <a class="nav-item nav-link " id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-controls="nav-desc" aria-selected="false">Description</a>
+                        <a class="nav-item nav-link" id="nav-payment-tab" data-toggle="tab" href="#nav-payment" role="tab" aria-controls="nav-profile" aria-selected="false">Payment</a>
+
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade active show container " id="nav-comment" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                        @if (ViewBag.Comments.Count == 0)
+                        {
+                            <h3>Bu Ürün Hakkında Yorum Yok</h3>
+                        }
+                        else
+                        {
+                            foreach (var item in (List<Comment>)ViewBag.Comments)
+                            {
+                                <div class="bd-example p-3">
+                                    <div class="media">
+                                        <svg class="bd-placeholder-img mr-3" width="64" height="64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 64x64"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">64x64</text></svg>
+                                        <div class="media-body">
+                                            <h5 class="mt-0">@item.Name @item.Surname</h5>
+                                            @item.Description
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    </div>
+                    <div class="tab-pane fade " id="nav-description" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <p>@Model.Description</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-payment" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <img alt="Ödeme Seçenekleri" height="355" src="//cdn.ikea.com.tr/ozgur-icerik/banka-kartlari/CY19-Bant-Web-TR.jpg" width="100%">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

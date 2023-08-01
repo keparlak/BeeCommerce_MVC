@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Models.CategoryModel>
+@{
+    var categoryId = Url.RequestContext.RouteData.Values["id"];
+}
+
+
+<ul class="list-group">
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a style="color: red;" href="/Home/List"><i class="fa fa-motorcycle" aria-hidden="true"></i>Tüm Kategeoriler</a>
+
+    </li>
+    @foreach (var kategori in Model)
+    {
+        if (categoryId != null)
+        {
+            if (kategori.Id == int.Parse(categoryId.ToString()))
+            {
+                <li class="list-group-item  d-flex justify-content-between align-items-center">
+                    <a class="list-group-item list-group-item-action active" style="background-color: red; border-color: red; " href="/Home/List/@kategori.Id"><i class="fa fa-motorcycle" aria-hidden="true"></i> @kategori.Name</a>
+                    <span class="badge badge-default badge-pill" style="background-color:red;">@kategori.CategoryCount</span>
+                </li>
+            }
+            else
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a style="color: red;" href="/Home/List/@kategori.Id"><i class="fa fa-motorcycle" aria-hidden="true"></i> @kategori.Name</a>
+                    <span class="badge badge-primary badge-pill"style="background-color:red;">@kategori.CategoryCount</span>
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a style="color: red;" href="/Home/List/@kategori.Id"><i class="fa fa-motorcycle" aria-hidden="true"></i> @kategori.Name</a>
+                <span class="badge badge-primary badge-pill"style="background-color:red;">@kategori.CategoryCount</span>
+            </li>
+        }
+    }
+</ul>
+

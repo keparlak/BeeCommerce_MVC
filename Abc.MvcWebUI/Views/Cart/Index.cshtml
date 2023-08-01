@@ -1,0 +1,65 @@
+﻿@model  Abc.MvcWebUI.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mb-5 mt-5">
+    <div class="  row">
+        <div class="col-md-12">
+            <h2>Alışveriş Sepeti</h2>
+            <hr />
+            @if (Model.CartLines.Count > 0)
+            {
+                <table class="table table-hover table-bordered ">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Urun Sayısı</th>
+                        <th>Urun Adı</th>
+                        <th>Urun Fiyatı</th>
+                        <th>Toplam Fiyat</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var product in Model.CartLines)
+                    {
+                        <tr>
+                            <td><img src="/Theme/img/@product.Product.Image" height="120px" width="120px" /></td>
+                            <td>@product.Quantity</td>
+                            <td>@product.Product.Name</td>
+                            <td>@product.Product.Price</td>
+                            <td>@((product.Quantity * product.Product.Price).ToString("c"))</td>
+                            <td>
+                                @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                {
+                                    <input type="hidden" name="Id" value="@product.Product.Id" />
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="5" class="text-center"> <a class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>Sepeti Boşalt</a></td>
+                        <td>@Model.Total().ToString("c")</td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div class="text-center">
+                    <a href="/home/list" class="btn btn-primary">Alışverişe devam et</a>
+                    <a href="/Cart/Checkout" class="btn btn-primary">checkoutt</a>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    Sepetinizde Urun Yoktur.
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

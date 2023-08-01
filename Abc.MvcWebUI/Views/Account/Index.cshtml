@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Abc.MvcWebUI.Models.UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Sipariş İşlemleri</h2>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>           <!-- Sipariş Numarası için başlık -->
+                        <th>Order date</th>             <!-- Sipariş Tarihi için başlık -->
+                        <th>Total</th>                  <!-- Toplam Tutar için başlık -->
+                        <th>Sipariş Durumu</th>         <!-- Sipariş Durumu için başlık -->
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {   <!-- Model içindeki her UserOrderModel için döngü -->
+
+                        <tr>
+                            <td>@order.OrderNumber</td>                 <!-- Sipariş Numarasını göster -->
+                            <td>@order.Total</td>                       <!-- Toplam Tutarı göster -->
+                            <td>@order.DateTime.ToShortDateString()</td> <!-- Sipariş Tarihini kısa tarih formatında göster -->
+                            <td>@order.OrderState</td>                  <!-- Sipariş Durumunu göster -->
+                            <td>@Html.ActionLink("Details","Details",new{Id=order.Id},new{@class="btn btn-primary"})</td>  <!-- "Details" adlı Action'a giderek sipariş detaylarını gösteren bir buton oluştur -->
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

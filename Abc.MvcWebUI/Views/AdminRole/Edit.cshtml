@@ -1,0 +1,88 @@
+﻿@model Abc.MvcWebUI.Models.RoleUpdata
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container p-5">
+    <h2>Admin Edit</h2>
+    <hr />
+    <hr />
+    @Html.ValidationSummary()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Name" value="@Model.Role.Name"/>
+        <input type="hidden" name="Id" value="@Model.Role.Id" />
+        <table class="table table-hover table-bordered ">
+        
+            <tr>
+                <th colspan="3" class="align-items-center">
+                    @Model.Role.Name eklenecek üyeler
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Üyeler
+                </th>
+                <th style="width: 140px;"></th>
+            </tr>
+
+            @foreach (var item in Model.NonMembers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <input type="checkbox" name="AddToIds" value="@item.Id"/>||
+                        @Html.ActionLink("Sil","Delete",new{id=item.Id},new{@class="btn btn-danger"})
+                    </td>
+                </tr>
+            }
+        </table>
+        <hr/>
+        <table class="table table-hover table-bordered ">
+
+            <tr>
+                <th colspan="3" class="align-items-center">
+                    @Model.Role.Name "dan silinecek üyeler
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Üyeler
+                </th>
+                <th style="width: 140px;"></th>
+            </tr>
+
+            @foreach (var item in Model.Members)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <input type="checkbox" name="DeleteToIds" value="@item.Id"/>||
+                        @Html.ActionLink("Sil","Delete",new{id=item.Id},new{@class="btn btn-danger"})
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    }
+</div>
