@@ -118,5 +118,10 @@ namespace Abc.MvcWebUI.Controllers
                 return View("Eror", new string[] { "hata oluştu" });
             }
         }
+        public ActionResult ListUsers()
+        {
+            var userdata =userManager.Users.ToList();
+            return View(userdata);
+        }
     }
 }

@@ -1,0 +1,51 @@
+﻿@using Abc.MvcWebUI.Models
+@model List<Abc.MvcWebUI.Identity.ApplicationUser>
+@{
+    ViewBag.Title = "ListUsers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container p-5">
+    <h2>Kullanıcılar</h2>
+    <hr />
+   
+    <hr />
+    <table class="table table-hover table-bordered ">
+
+        <tr>
+            <th>
+                Kullanıcı Adı
+            </th>
+            <th>
+                Ad
+            </th>
+            <th>
+                SoyAd
+            </th>
+            <th>
+                Email
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+              
+            </tr>
+        }
+
+    </table>
+</div>
+

@@ -116,7 +116,7 @@ namespace Abc.MvcWebUI.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("RegisterUserEror", "Kullanıcı oluşturulurken hata oluştu.");
+                    ModelState.AddModelError("RegisterUserError", "Kullanıcı oluşturulurken hata oluştu.");
                 }
             }
             return View(model);
@@ -128,7 +128,7 @@ namespace Abc.MvcWebUI.Controllers
             if (Request.IsAuthenticated)
             {
                 // Eğer kullanıcı zaten oturum açmışsa, "Yetkisiz Giriş" hatası gösterilir.
-                return View("Eror", new string[] { "Yetkisiz Giriş" });
+                return View("Error", new string[] { "Yetkisiz Giriş" });
             }
 
             ViewBag.ReturnUrl = ReturnUrl;
@@ -185,5 +185,15 @@ namespace Abc.MvcWebUI.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult ReturnToHome()
+        {
+            var authManager = HttpContext.GetOwinContext().Authentication;
+             // Kullanıcı çıkış yapar.
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        
     }
 }

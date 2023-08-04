@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Abc.MvcWebUI.Models.UserOrderModel>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="container">
@@ -24,8 +24,8 @@
 
                         <tr>
                             <td>@order.OrderNumber</td>                 <!-- Sipariş Numarasını göster -->
-                            <td>@order.Total</td>                       <!-- Toplam Tutarı göster -->
-                            <td>@order.DateTime.ToShortDateString()</td> <!-- Sipariş Tarihini kısa tarih formatında göster -->
+                            <td>@order.DateTime.ToShortDateString()</td>                       <!-- Toplam Tutarı göster -->
+                            <td>@order.Total</td> <!-- Sipariş Tarihini kısa tarih formatında göster -->
                             <td>@order.OrderState</td>                  <!-- Sipariş Durumunu göster -->
                             <td>@Html.ActionLink("Details","Details",new{Id=order.Id},new{@class="btn btn-primary"})</td>  <!-- "Details" adlı Action'a giderek sipariş detaylarını gösteren bir buton oluştur -->
                         </tr>

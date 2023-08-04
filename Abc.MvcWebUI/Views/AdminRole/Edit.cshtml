@@ -1,4 +1,4 @@
-﻿@model Abc.MvcWebUI.Models.RoleUpdata
+﻿@model Abc.MvcWebUI.Models.RoleUpdate
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -41,8 +41,8 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        <input type="checkbox" name="AddToIds" value="@item.Id"/>||
-                        @Html.ActionLink("Sil","Delete",new{id=item.Id},new{@class="btn btn-danger"})
+                        <input type="checkbox" class="mx-3 my-3" name="AddToIds" value="@item.Id"/>||
+                        @Html.ActionLink("Sil","Delete",new{id=item.Id},new{@class="btn btn-danger mx-2"})
                     </td>
                 </tr>
             }
@@ -75,8 +75,8 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        <input type="checkbox" name="DeleteToIds" value="@item.Id"/>||
-                        @Html.ActionLink("Sil","Delete",new{id=item.Id},new{@class="btn btn-danger"})
+                        <input type="checkbox" class="mx-3 my-3" name="DeleteToIds" value="@item.Id"/>||
+                        @Html.ActionLink("Sil","Delete",new{id=item.Id},new{@class= "btn btn-danger mx-2" })
                     </td>
                 </tr>
             }
