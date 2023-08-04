@@ -259,3 +259,11 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+Abc.MvcWebUI/Migrations/202308020818503_Frst.cs
+Abc.MvcWebUI/Migrations/202308020818503_Frst.Designer.cs
+Abc.MvcWebUI/Migrations/202308020818503_Frst.resx
+Abc.MvcWebUI/Migrations/Configuration.cs
+Abc.MvcWebUI/packages.config
+Abc.MvcWebUI/Scripts/jquery.validate.unobtrusive.min.js
+Abc.MvcWebUI/packages.config
+Abc.MvcWebUI/Scripts/jquery.validate.unobtrusive.min.js
