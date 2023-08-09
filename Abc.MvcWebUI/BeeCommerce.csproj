@@ -2640,14 +2640,6 @@
     <Compile Include="Identity\ApplicationUser.cs" />
     <Compile Include="Identity\IdentityDataContext.cs" />
     <Compile Include="Identity\IdentityInitializer.cs" />
-    <Compile Include="Migrations\202308081325209_User.cs" />
-    <Compile Include="Migrations\202308081325209_User.designer.cs">
-      <DependentUpon>202308081325209_User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202308081331109_User1.cs" />
-    <Compile Include="Migrations\202308081331109_User1.designer.cs">
-      <DependentUpon>202308081331109_User1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminOrderModel.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -2694,7 +2686,7 @@
     <Content Include="Views\Cart\Complated.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Account\UserDetails.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Cart\Error.cshtml" />
@@ -2713,14 +2705,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Theme\js\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202308081325209_User.resx">
-      <DependentUpon>202308081325209_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202308081331109_User1.resx">
-      <DependentUpon>202308081331109_User1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

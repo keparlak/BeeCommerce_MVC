@@ -20,29 +20,36 @@
 
 
     @*bg-dark*@
-<nav class="navbar navbar-expand-lg navbar-dark text-dark ">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #ff0000;">
     <div>
-        <a style="text-decoration:none;color:black;" href="/Home/Index"><h1 style="font-size: 50px;" class="display-4 header d-flex flex-direction-row mr-5 "><span style="margin-right:0.75rem ">BeeCommerce</span> Shop</h1></a>
+        <h1 style="font-size: 50px;"   class="display-4 header d-flex flex-direction-row mr-5 "><span style="margin-right:0.75rem ">BeeCommerce</span> Shop</h1>
         <div class="row">
             <div class="col-md-9 text-center"></div>
         </div>
     </div>
 
     <div class="container">
-        
+        <a class="navbar-brand" href="/home/index">Ana Sayfa</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
-            
-            <div style="margin-left:50px;margin-right:431px;">
-                <form  class="form-inline">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0" style="background-color: aliceblue" type="submit">Search</button>
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home/list">Urunler</a>
+                </li>
+                @if (User.IsInRole("admin"))
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/AdminRole/Index">Yönetim Paneli</a>
+                    </li>
+                }
+            </ul>
+            <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0"style="background-color: aliceblue" type="submit">Search</button>
                 </form>
-            </div>
-
-
 
 
 

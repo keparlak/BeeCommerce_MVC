@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Abc.MvcWebUI.Entity;
@@ -13,7 +10,6 @@ using Abc.MvcWebUI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-
 
 namespace Abc.MvcWebUI.Controllers
 {
@@ -193,66 +189,11 @@ namespace Abc.MvcWebUI.Controllers
         public ActionResult ReturnToHome()
         {
             var authManager = HttpContext.GetOwinContext().Authentication;
-            // Kullanıcı çıkış yapar.
+             // Kullanıcı çıkış yapar.
 
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Account/Edit
-        public async Task<ActionResult> Edit()
-        {
-            var userId = User.Identity.GetUserId();
-            if (userId == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var user = await db.Users.FindAsync(userId);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(user);
-        }
-
-        // POST: Account/Edit
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(ApplicationUser user)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index", "Home"); // Redirect to the desired action after successful edit
-            }
-
-            return View(user);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-
-
-        public async Task<ActionResult> UserDetails()
-        {   
-            var userId = User.Identity.GetUserId();
-            var user = await userManager.FindByIdAsync(userId);
-
-            if (user == null)
-            {
-                // Kullanıcı bulunamadı durumunu işle
-            }
-
-            return View(user);
-        }
+        
     }
 }
