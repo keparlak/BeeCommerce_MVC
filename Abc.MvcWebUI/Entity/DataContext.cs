@@ -34,5 +34,6 @@ namespace Abc.MvcWebUI.Entity
 
         // Yorumlar tablosu için DbSet koleksiyonu.
         public DbSet<Comment> Comments { get; set; }
+
     }
 }

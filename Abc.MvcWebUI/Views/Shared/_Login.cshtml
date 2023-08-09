@@ -1,27 +1,35 @@
 ﻿
-<ul class="navbar-nav mt-2 my-lg-0">
+<ul class="navbar-nav mt-2 my-lg-0" >
 
     @if (Request.IsAuthenticated)
     {
         <li class="nav-item active">
-            <a class="nav-link" href="/Account">@User.Identity.Name</a>
+            <a style="color:black" class="nav-link" href="@Url.Action("UserDetails","Account")">@User.Identity.Name</a>
         </li>
+        if (User.IsInRole("admin"))
+        {
+
+
+        }
+        else
+        {
+        }
         <li class="nav-item active">
-            <a class="nav-link" href="/Account/Logout">Cıkış</a>
+            <a style="color:black" class="nav-link" href="@Url.Action("Logout","Account")">Cıkış</a>
         </li>
     }
     else
     {
-       
+
         <li class="nav-item active">
-            <a class="nav-link" href="/Account/Login">Giriş</a>
+            <a style="color:black" class="nav-link" href="/Account/Login">Giriş</a>
         </li>
-        
+
         <li class="nav-item active">
-            <a class="nav-link" href="/Account/Register">Kayıt Ol</a>
+            <a style="color:black" class="nav-link" href="/Account/Register">Kayıt Ol</a>
         </li>
     }
 
-   
-    
+
+
 </ul>
