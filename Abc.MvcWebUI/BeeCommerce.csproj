@@ -2695,6 +2695,7 @@
     <Content Include="Views\Comment\Index.cshtml" />
     <Content Include="Views\Product\Upload.cshtml" />
     <Content Include="Views\AdminRole\ListUsers.cshtml" />
+    <Content Include="Views\Account\UserDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

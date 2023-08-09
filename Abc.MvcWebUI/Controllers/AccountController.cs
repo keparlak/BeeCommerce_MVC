@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Abc.MvcWebUI.Entity;
@@ -194,6 +195,20 @@ namespace Abc.MvcWebUI.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
+
+        public async Task<ActionResult> UserDetails()
+        {
+            var userId = User.Identity.GetUserId();
+            var user = await userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                // Kullanıcı bulunamadı durumunu işle
+            }
+
+            return View(user);
+        }
+
+
     }
 }
